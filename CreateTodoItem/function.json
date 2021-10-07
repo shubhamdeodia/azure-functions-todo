@@ -1,0 +1,27 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["post"],
+      "route": "todoitem/"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "out",
+      "name": "todoItemRecord",
+      "databaseName": "todocontainer",
+      "collectionName": "todoitems",
+      "connectionStringSetting": "enterpriseportalcosmosdemo_DOCUMENTDB",
+      "partitionKey": "/userId"
+    }
+  ],
+  "scriptFile": "../dist/CreateTodoItem/index.js"
+}
