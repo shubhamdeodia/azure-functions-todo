@@ -6,6 +6,8 @@ import jwt_decode from "jwt-decode";
 
 export function getUserId(headers: HttpRequestHeaders): string {
   // const token = headers["authorization"].replace("Bearer ", "");
+
+  // console.log(token);
   // const claims = jwt_decode(token);
   // const scope = claims["scp"];
   // if (scope && scope === "todo.owner") {
@@ -13,6 +15,11 @@ export function getUserId(headers: HttpRequestHeaders): string {
   // }
   // throw new Error("Unauthorized user.");
   return "test";
+}
+
+export function getAuthTokenFromHeaders(headers: HttpRequestHeaders): string {
+  const token = headers["authorization"].replace("Bearer ", "");
+  return token;
 }
 
 export function getGuid(): string {
